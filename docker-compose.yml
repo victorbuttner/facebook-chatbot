@@ -28,8 +28,6 @@ services:
       - FB_WEBHOOK_BASE=https://facebook-botchat.herokuapp.com/hubot/fb  
     volumes:
       - .:/myapp
-
-
     networks:
      - vpcbr
 

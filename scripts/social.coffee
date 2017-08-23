@@ -20,11 +20,11 @@ module.exports = (robot) ->
 	robot.respond/bora tomar */i, (res) -> 
 			res.reply ('opa! Tem álcool? sim | nao')
 			dialog = switchBoard.startDialog(res);	
-			dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,  function (msg2) {
+			dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,   (msg2) ->
 				res.reply("Não posso, estou em horário de expediente! :upside_down: :wine_glass: :wine_glass:")
 			)
 
-			dialog.addChoice(/nao|não|Não|NAO|NÃO|pouca coisa|necas/,  function (msg2) {
+			dialog.addChoice(/nao|não|Não|NAO|NÃO|pouca coisa|necas/,  (msg2) ->
 				res.reply("bora! :coffee:")
-			})
-		}
+			)
+		
