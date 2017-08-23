@@ -1,8 +1,8 @@
 module.exports = (robot) ->
 
-	var Conversation = require('hubot-conversation');
+	Conversation = require('hubot-conversation');
 		
-	var switchBoard = new Conversation(robot);
+	switchBoard = new Conversation(robot);
 
 
  	robot.respond /tem alguém ai?/i, (res) ->
@@ -19,7 +19,7 @@ module.exports = (robot) ->
 
 	robot.respond/bora tomar */i, (res) -> 
 			res.reply ('opa! Tem álcool? sim | nao')
-			var dialog = switchBoard.startDialog(res);	
+			dialog = switchBoard.startDialog(res);	
 			dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,  function (msg2) {
 				res.reply("Não posso, estou em horário de expediente! :upside_down: :wine_glass: :wine_glass:")
 			)

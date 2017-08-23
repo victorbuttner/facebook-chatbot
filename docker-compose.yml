@@ -25,7 +25,11 @@ services:
       - FB_APP_SECRET=2ef82db3e05d8be09e525dd185f0d652
       - FB_PAGE_TOKEN=EAAB2BT5t758BAISoGxHd0aAZCI5FZCTb53K2bE52kAbJ1NYZCUALAAhdz3Sw15cmDjXKSMftYQZAynPJIQFvmYds4OaQ0WP6dZAduZA16khz8MtuWSN4Mmm0nyLbxDgijdcvQGIa3zbX1ZBZAvnEwngpcEkJooWmX6w3Kn1VXkQZCCQZDZD
       - FB_VERIFY_TOKEN=XIVl4KU6GNvILYqiHoB8
-      - FB_WEBHOOK_BASE=https://facebook-botchat.herokuapp.com/hubot/fb
+      - FB_WEBHOOK_BASE=https://facebook-botchat.herokuapp.com/hubot/fb  
+    volumes:
+      - .:/myapp
+
+
     networks:
      - vpcbr
 
