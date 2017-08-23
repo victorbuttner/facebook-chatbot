@@ -3,10 +3,9 @@ module.exports = (robot) ->
 	Conversation = require('hubot-conversation');
 		
 	switchBoard = new Conversation(robot);
-
-
- 	robot.respond /tem alguém ai?/i, (res) ->
-		res.reply  "Tem sim estamos ai"
+	
+	robot.respond /tem alguém ai?/i, (res) ->
+		res.reply("Tem sim estamos ai")
 
 
 	robot.respond /boa tarde*/i, (res) -> 
