@@ -13,11 +13,11 @@ module.exports = (robot) ->
 		res.reply("boa tarde! Simbora que falta pouco pra acabar o dia!")
 	
 
-	robot.respond/boa noite*/i, (res) -> 
+	robot.respond /boa noite*/i, (res) -> 
 		res.reply("boa noite! Tenha um ótimo fim de semana!")
 		
 
-	robot.respond/bora tomar */i, (res) -> 
+	robot.respond /bora tomar */i, (res) -> 
 			res.reply ('opa! Tem álcool? sim | nao')
 			dialog = switchBoard.startDialog(res);	
 			dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,   (msg2) ->
