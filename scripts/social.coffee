@@ -6,7 +6,7 @@ module.exports = (robot) ->
 
 
  	robot.respond /tem alguém ai?/i, (res) ->
-	    res.reply  "Tem sim estamos ai"
+		res.reply  "Tem sim estamos ai"
 
 
 	robot.respond /boa tarde*/i, (res) -> 
@@ -18,13 +18,13 @@ module.exports = (robot) ->
 		
 
 	robot.respond /bora tomar */i, (res) -> 
-			res.reply ('opa! Tem álcool? sim | nao')
-			dialog = switchBoard.startDialog(res);	
-			dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,   (msg2) ->
-				res.reply("Não posso, estou em horário de expediente! :upside_down: :wine_glass: :wine_glass:")
-			)
+		res.reply ('opa! Tem álcool? sim | nao')
+		dialog = switchBoard.startDialog(res);	
+		dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,   (msg2) ->
+			res.reply("Não posso, estou em horário de expediente! :upside_down: :wine_glass: :wine_glass:")
+		)
 
-			dialog.addChoice(/nao|não|Não|NAO|NÃO|pouca coisa|necas/,  (msg2) ->
-				res.reply("bora! :coffee:")
-			)
+		dialog.addChoice(/nao|não|Não|NAO|NÃO|pouca coisa|necas/,  (msg2) ->
+			res.reply("bora! :coffee:")
+		)
 		
