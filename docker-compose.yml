@@ -1,0 +1,38 @@
+version: "2"
+services:
+  cache:
+    image: "redis:latest"
+    expose:
+      - "6379"
+    logging:  
+      driver: "none"
+    networks:
+     - vpcbr
+  db:
+    image: "mongo:latest"
+    logging:
+      driver: "none"
+    networks:
+     - vpcbr
+  bot:
+    build: .
+    links:
+      - cache
+      - chat
+    environment:
+      - REDISCLOUD_URL=redis://cache
+      - FB_PAGE_ID='https://www.facebook.com/pg/PizzaBotz-105770546807696/about/?tab=page_info'
+      - FB_APP_ID=129764894306207
+      - FB_APP_SECRET=2ef82db3e05d8be09e525dd185f0d652
+      - FB_PAGE_TOKEN=EAAB2BT5t758BAISoGxHd0aAZCI5FZCTb53K2bE52kAbJ1NYZCUALAAhdz3Sw15cmDjXKSMftYQZAynPJIQFvmYds4OaQ0WP6dZAduZA16khz8MtuWSN4Mmm0nyLbxDgijdcvQGIa3zbX1ZBZAvnEwngpcEkJooWmX6w3Kn1VXkQZCCQZDZD
+      - FB_VERIFY_TOKEN=XIVl4KU6GNvILYqiHoB8
+    networks:
+     - vpcbr
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.10.0.0/16
+         gateway: 10.10.0.1

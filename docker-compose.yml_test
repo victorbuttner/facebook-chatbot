@@ -1,0 +1,53 @@
+version: "2"
+services:
+  cache:
+    image: "redis:latest"
+    expose:
+      - "6379"
+    logging:  
+      driver: "none"
+    networks:
+     - vpcbr
+  db:
+    image: "mongo:latest"
+    logging:
+      driver: "none"
+    networks:
+     - vpcbr
+  chat:
+    image: "rocket.chat:latest"
+    links:
+      - db
+    ports: 
+      - "80:3000"
+    expose:
+      - "3000"
+    environment:
+      - ROOT_URL=http://localhost
+      - MONGO_URL=mongodb://db/mydb
+    networks:
+     - vpcbr
+  bot:
+    build: .
+    links:
+      - cache
+      - chat
+    environment:
+      - REDISCLOUD_URL=redis://cache
+      - ROCKETCHAT_ROOM=''
+      - LISTEN_ON_ALL_PUBLIC=true
+      - ROCKETCHAT_USER=bot
+      - ROCKETCHAT_PASSWORD=bot
+      - ROCKETCHAT_AUTH=password
+      - ROCKETCHAT_URL=http://chat:3000
+      - BOT_NAME=bot
+    networks:
+     - vpcbr
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
