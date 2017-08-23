@@ -18,7 +18,6 @@ services:
     build: .
     links:
       - cache
-      - chat
     environment:
       - REDISCLOUD_URL=redis://cache
       - FB_PAGE_ID='https://www.facebook.com/pg/PizzaBotz-105770546807696/about/?tab=page_info'
@@ -34,5 +33,5 @@ networks:
     driver: bridge
     ipam:
      config:
-       - subnet: 10.10.0.0/16
-         gateway: 10.10.0.1
+       - subnet: 10.11.0.0/16
+         gateway: 10.11.0.1
