@@ -10,7 +10,7 @@ module.exports = function(robot) {
 
 //social scripts
 
-	robot.respond(/deu ruim*/i, res -> 
+	robot.respond(/deu ruim*/i, (res) -> 
 		res.reply("que nada!")
 	)
 
