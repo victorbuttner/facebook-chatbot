@@ -4,19 +4,19 @@ module.exports = (robot) ->
 		
 	switchBoard = new Conversation(robot);
 	
-	robot.respond /tem alguém ai?/i, (res) ->
+	robot.hear /tem alguém ai?/i, (res) ->
 		res.reply("Tem sim estamos ai")
 
 
-	robot.respond /boa tarde*/i, (res) -> 
+	robot.hear /boa tarde*/i, (res) -> 
 		res.reply("boa tarde! Simbora que falta pouco pra acabar o dia!")
 	
 
-	robot.respond /boa noite*/i, (res) -> 
+	robot.hear /boa noite*/i, (res) -> 
 		res.reply("boa noite! Tenha um ótimo fim de semana!")
 		
 
-	robot.respond /bora tomar */i, (res) -> 
+	robot.hear /bora tomar */i, (res) -> 
 		res.reply ('opa! Tem álcool? sim | nao')
 		dialog = switchBoard.startDialog(res);	
 		dialog.addChoice(/sim|aham|Sim|SIM|claro|muito|tem|ok|tem*|demais/,   (msg2) ->
