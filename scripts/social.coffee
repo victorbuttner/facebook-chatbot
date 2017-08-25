@@ -5,7 +5,7 @@ module.exports = (robot) ->
 	switchBoard = new Conversation(robot);
 	
 	
-	robot.hear /*/i, (res) ->
+	robot.hear /(.*)/i, (res) ->
 		res.reply("mensagem recebida")
 		
 		
