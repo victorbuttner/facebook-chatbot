@@ -4,6 +4,11 @@ module.exports = (robot) ->
 		
 	switchBoard = new Conversation(robot);
 	
+	
+	robot.hear /*/i, (res) ->
+		res.reply("mensagem recebida")
+		
+		
 	robot.hear /tem alguém ai?/i, (res) ->
 		res.reply("Tem sim estamos ai")
 
